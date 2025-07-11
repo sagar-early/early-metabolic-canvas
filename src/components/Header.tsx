@@ -28,7 +28,7 @@ const Header = () => {
             <img
               src="/lovable-uploads/742fd2f1-7617-4622-bb00-40422b00ca21.png"
               alt="EARLY"
-              className="h-13 w-auto" // Increased logo height from h-8 to h-10
+              className="h-11 w-auto" // Increased logo height from h-8 to h-10
             />
           </div>
 
