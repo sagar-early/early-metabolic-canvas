@@ -19,8 +19,8 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/95">
-      <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+      <div className="w-full">
+        <div className="flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <div className="flex-shrink-0">
             <img
@@ -67,24 +67,46 @@ const Header = () => {
                   <Menu className="h-6 w-6" />
                 </button>
               </SheetTrigger>
-              <SheetContent side="right" className="w-80 bg-white p-6">
-                <div className="flex flex-col space-y-4 mt-8">
-                  {navItems.map((item) => (
-                    <a
-                      key={item.name}
-                      href={item.href}
-                      className={`text-lg font-medium py-3 px-4 rounded-lg transition-colors ${
-                        item.active
-                          ? 'text-primary underline'
-                          : 'text-gray-700 hover:text-primary hover:bg-gray-100'
-                      }`}
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.name}
-                    </a>
+              <SheetContent 
+                side="right" 
+                className="w-full h-full bg-white/50 backdrop-blur-md border-0 p-0 flex flex-col"
+              >
+                {/* Close button */}
+                <div className="flex justify-end p-6">
+                  <button
+                    onClick={() => setIsOpen(false)}
+                    className="text-gray-700 hover:text-primary p-2"
+                  >
+                    <X className="h-6 w-6" />
+                  </button>
+                </div>
+
+                {/* Menu items */}
+                <div className="flex-1 flex flex-col justify-center px-8 space-y-0">
+                  {navItems.map((item, index) => (
+                    <React.Fragment key={item.name}>
+                      <a
+                        href={item.href}
+                        className={`text-lg font-medium py-6 transition-colors text-center ${
+                          item.active
+                            ? 'text-primary underline underline-offset-4'
+                            : 'text-gray-700 hover:text-primary'
+                        }`}
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                      {index < navItems.length - 1 && (
+                        <div className="h-px bg-white/30"></div>
+                      )}
+                    </React.Fragment>
                   ))}
+                </div>
+
+                {/* CTA Button at bottom */}
+                <div className="p-8">
                   <Button 
-                    className="bg-primary hover:opacity-90 text-white font-medium px-6 py-3 rounded-full mt-6 w-full"
+                    className="bg-primary hover:opacity-90 text-white font-medium px-6 py-4 rounded-full w-full text-lg"
                     onClick={() => {
                       window.open('https://wa.aisensy.com/aaaflf', '_blank');
                       setIsOpen(false);

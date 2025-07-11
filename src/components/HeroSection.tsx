@@ -7,10 +7,10 @@ import ImageCarousel from './ImageCarousel';
 const HeroSection = () => {
   return (
     <section className="min-h-screen bg-neutral-light">
-      <div className="w-full px-4 sm:px-6 lg:px-8 py-4 lg:py-8">
+      <div className="w-full py-4 lg:py-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Mobile: Product Details First */}
-          <div className="lg:hidden space-y-3">
+          <div className="lg:hidden space-y-3 px-4 sm:px-6">
             {/* Module 1: Header & Trust Signal */}
             <div className="space-y-2">
               <h1 className="text-3xl font-bold text-primary font-unna leading-tight">
@@ -51,15 +51,15 @@ const HeroSection = () => {
           </div>
 
           {/* Left Column - Image Carousel */}
-          <div className="animate-fade-in order-2 lg:order-1">
+          <div className="animate-fade-in order-2 lg:order-1 px-4 sm:px-6 lg:px-0">
             <ImageCarousel />
           </div>
 
           {/* Right Column - Product Details (Desktop) */}
-          <div className="hidden lg:flex lg:flex-col space-y-3 animate-fade-in order-1 lg:order-2">
+          <div className="hidden lg:flex lg:flex-col space-y-4 animate-fade-in order-1 lg:order-2 px-8 lg:px-12 xl:px-16">
             {/* Module 1: Header & Trust Signal */}
-            <div className="space-y-2">
-              <h1 className="text-4xl lg:text-5xl font-bold text-primary font-unna leading-tight">
+            <div className="space-y-3">
+              <h1 className="text-4xl xl:text-5xl font-bold text-primary font-unna leading-tight">
                 Metabolic Diagnosis Test
               </h1>
               <p className="text-xl text-gray-700 font-satoshi font-medium">
@@ -78,7 +78,7 @@ const HeroSection = () => {
             </div>
 
             {/* Module 2: Core Description */}
-            <div className="space-y-2">
+            <div className="space-y-3">
               <p className="text-lg text-gray-800 font-satoshi leading-relaxed">
                 Stop guessing. This medical diagnosis uncovers the root biological cause of your weight gain, 
                 making it the essential first step towards our full medical program—proven to help eligible 
@@ -92,7 +92,7 @@ const HeroSection = () => {
             </div>
 
             {/* Module 3: Key Benefits Grid */}
-            <div className="grid grid-cols-2 gap-3">
+            <div className="grid grid-cols-2 gap-4">
               <div className="flex items-start space-x-3">
                 <div className="bg-[#c6f15b] p-3 rounded-lg">
                   <Search className="w-6 h-6 text-primary" />
@@ -137,11 +137,11 @@ const HeroSection = () => {
 
             {/* Module 4: Purchase & CTA Block */}
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg">
-              <h3 className="text-2xl font-bold text-primary font-unna mb-3">
+              <h3 className="text-2xl font-bold text-primary font-unna mb-4">
                 Complete Diagnostic Package
               </h3>
               
-              <div className="flex items-center space-x-4 mb-3">
+              <div className="flex items-center space-x-4 mb-4">
                 <span className="text-4xl font-bold text-primary font-satoshi">
                   ₹1,499
                 </span>
@@ -153,7 +153,7 @@ const HeroSection = () => {
                 </span>
               </div>
               
-              <p className="text-gray-700 font-satoshi mb-4">
+              <p className="text-gray-700 font-satoshi mb-6">
                 Includes all tests, consultations, and your personalized plan.
               </p>
               
@@ -164,7 +164,7 @@ const HeroSection = () => {
           </div>
 
           {/* Mobile: Additional Content */}
-          <div className="lg:hidden space-y-4 order-3 mb-8">
+          <div className="lg:hidden space-y-4 order-3 mb-8 px-4 sm:px-6">
             {/* Core Description */}
             <div className="space-y-2">
               <p className="text-base text-gray-800 font-satoshi leading-relaxed">
@@ -213,6 +213,9 @@ const HeroSection = () => {
                 </p>
               </div>
             </div>
+
+            {/* Extra spacing before footer */}
+            <div className="h-8"></div>
           </div>
         </div>
       </div>
