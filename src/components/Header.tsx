@@ -45,7 +45,7 @@ const Header = () => {
                     className={`text-sm font-medium transition-colors px-3 py-1 rounded-full ${
                       item.active
                         ? 'text-black underline cursor-default' // Active: White text, underlined, no background or hover effects
-                        : 'text-black-200 hover:text-black' // Inactive: Light gray text, brightens to white on hover
+                        : 'text-black' // Inactive: Light gray text, brightens to white on hover
                     }`}
                   >
                     {item.name}
