@@ -97,3 +97,17 @@ All colors MUST be HSL.
     @apply bg-neutral-light text-foreground;
   }
 }
+
+/* Slower ticker tape animation */
+@keyframes slide-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-slide-left {
+  animation: slide-left 40s linear infinite;
+}

@@ -57,8 +57,8 @@ const ImageCarousel = () => {
 
   return (
     <div className="space-y-4">
-      {/* Main Image */}
-      <div className="relative w-full h-96 lg:h-126 overflow-hidden rounded-2xl shadow-2xl group">
+      {/* Main Image - Larger on desktop, smaller on mobile */}
+      <div className="relative w-full lg:w-4/5 mx-auto aspect-square overflow-hidden rounded-2xl shadow-2xl group">
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
@@ -75,14 +75,14 @@ const ImageCarousel = () => {
         </button>
       </div>
 
-      {/* Navigation with Thumbnails */}
-      <div className="flex items-center justify-center space-x-3">
+      {/* Navigation with Thumbnails - Desktop */}
+      <div className="hidden lg:flex items-center justify-center space-x-3">
         {/* Left Arrow */}
         <button
           onClick={goToPrevious}
-          className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all flex-shrink-0"
+          className="bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all flex-shrink-0"
         >
-          <ChevronLeft className="w-5 h-5 text-primary" />
+          <ChevronLeft className="w-6 h-6 text-primary" />
         </button>
 
         {/* Thumbnails */}
@@ -91,7 +91,7 @@ const ImageCarousel = () => {
             <button
               key={index}
               onClick={() => handleImageClick(index)}
-              className={`w-24 h-24 rounded-lg overflow-hidden border-2 transition-all ${
+              className={`w-32 h-32 rounded-lg overflow-hidden border-2 transition-all ${
                 index === currentIndex 
                   ? 'border-white shadow-lg scale-110' 
                   : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
@@ -109,10 +109,52 @@ const ImageCarousel = () => {
         {/* Right Arrow */}
         <button
           onClick={goToNext}
-          className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all flex-shrink-0"
+          className="bg-white/80 hover:bg-white p-3 rounded-full shadow-lg transition-all flex-shrink-0"
         >
-          <ChevronRight className="w-5 h-5 text-primary" />
+          <ChevronRight className="w-6 h-6 text-primary" />
         </button>
+      </div>
+
+      {/* Mobile Navigation - Show only 2-3 images with scroll */}
+      <div className="lg:hidden">
+        <div className="flex items-center justify-between space-x-2">
+          {/* Left Arrow */}
+          <button
+            onClick={goToPrevious}
+            className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all flex-shrink-0"
+          >
+            <ChevronLeft className="w-5 h-5 text-primary" />
+          </button>
+
+          {/* Mobile Thumbnails - Show 2-3 images */}
+          <div className="flex space-x-2 overflow-hidden flex-1 justify-center">
+            {images.slice(0, 3).map((image, index) => (
+              <button
+                key={index}
+                onClick={() => handleImageClick(index)}
+                className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
+                  index === currentIndex 
+                    ? 'border-white shadow-lg scale-110' 
+                    : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            ))}
+          </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={goToNext}
+            className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all flex-shrink-0"
+          >
+            <ChevronRight className="w-5 h-5 text-primary" />
+          </button>
+        </div>
       </div>
 
       {/* Zoom Modal */}

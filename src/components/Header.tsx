@@ -12,13 +12,14 @@ const Header = () => {
     { name: 'Early Program', href: 'https://early.fit/#program', active: false },
     { name: 'Medications', href: 'https://early.fit/medications', active: false },
     { name: 'Calculators', href: 'https://early.fit/calculators', active: false },
-    { name: 'Metabolic Test', href: 'https://early.fit/#btnQuiz', active: true },
+    { name: 'Research', href: 'https://early.fit/research', active: false },
     { name: 'Blogs', href: 'https://blog.early.fit', active: false },
+    { name: 'Metabolic Test', href: 'https://early.fit/#btnQuiz', active: true },
   ];
 
   return (
     <header className="sticky top-0 z-50 bg-white border-b border-gray-200 backdrop-blur-sm bg-white/95">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">

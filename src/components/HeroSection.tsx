@@ -7,12 +7,12 @@ import ImageCarousel from './ImageCarousel';
 const HeroSection = () => {
   return (
     <section className="min-h-screen bg-neutral-light">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 lg:py-8">
+      <div className="w-full px-4 sm:px-6 lg:px-8 py-4 lg:py-8">
         <div className="flex flex-col lg:grid lg:grid-cols-2 gap-6 lg:gap-8 items-start">
           {/* Mobile: Product Details First */}
-          <div className="lg:hidden space-y-4">
+          <div className="lg:hidden space-y-3">
             {/* Module 1: Header & Trust Signal */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <h1 className="text-3xl font-bold text-primary font-unna leading-tight">
                 Metabolic Diagnosis Test
               </h1>
@@ -56,9 +56,9 @@ const HeroSection = () => {
           </div>
 
           {/* Right Column - Product Details (Desktop) */}
-          <div className="hidden lg:flex lg:flex-col space-y-4 animate-fade-in order-1 lg:order-2">
+          <div className="hidden lg:flex lg:flex-col space-y-3 animate-fade-in order-1 lg:order-2">
             {/* Module 1: Header & Trust Signal */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <h1 className="text-4xl lg:text-5xl font-bold text-primary font-unna leading-tight">
                 Metabolic Diagnosis Test
               </h1>
@@ -78,7 +78,7 @@ const HeroSection = () => {
             </div>
 
             {/* Module 2: Core Description */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <p className="text-lg text-gray-800 font-satoshi leading-relaxed">
                 Stop guessing. This medical diagnosis uncovers the root biological cause of your weight gain, 
                 making it the essential first step towards our full medical program—proven to help eligible 
@@ -92,7 +92,7 @@ const HeroSection = () => {
             </div>
 
             {/* Module 3: Key Benefits Grid */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-3">
               <div className="flex items-start space-x-3">
                 <div className="bg-[#c6f15b] p-3 rounded-lg">
                   <Search className="w-6 h-6 text-primary" />
@@ -164,9 +164,9 @@ const HeroSection = () => {
           </div>
 
           {/* Mobile: Additional Content */}
-          <div className="lg:hidden space-y-4 order-3">
+          <div className="lg:hidden space-y-4 order-3 mb-8">
             {/* Core Description */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               <p className="text-base text-gray-800 font-satoshi leading-relaxed">
                 Stop guessing. This medical diagnosis uncovers the root biological cause of your weight gain, 
                 making it the essential first step towards our full medical program—proven to help eligible 
