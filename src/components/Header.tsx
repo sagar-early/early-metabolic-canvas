@@ -12,10 +12,10 @@ const Header = () => {
     { name: 'Home', href: 'https://early.fit', active: false },
     { name: 'Early Program', href: 'https://early.fit/#program', active: false },
     { name: 'Medications', href: 'https://early.fit/medications', active: false },
+        { name: 'Calculators', href: 'https://early.fit/calculators', active: false },
     // Renamed item is now the active one
-    { name: 'Metabolic Diagnosis Test', href: 'https://early.fit/#btnQuiz', active: true },
-    { name: 'Blog', href: 'https://blog.early.fit', active: false },
-    { name: 'Calculators', href: 'https://early.fit/calculators', active: false },
+    { name: 'Metabolic Test', href: 'https://early.fit/#btnQuiz', active: true },
+    { name: 'Blogs', href: 'https://blog.early.fit', active: false },
   ];
 
   return (
@@ -28,14 +28,14 @@ const Header = () => {
             <img
               src="/lovable-uploads/742fd2f1-7617-4622-bb00-40422b00ca21.png"
               alt="EARLY"
-              className="h-10 w-auto" // Increased logo height from h-8 to h-10
+              className="h-13 w-auto" // Increased logo height from h-8 to h-10
             />
           </div>
 
           {/* Desktop Navigation - Updated styling */}
           <nav className="hidden md:flex">
             {/* Changed background color, reduced padding and spacing */}
-            <div className="bg-[#79855F] rounded-full px-3 py-2 shadow-sm">
+            <div className="bg-[#79855F] rounded-full px-1 py-1">
               <div className="flex items-center space-x-1"> {/* Reduced space between items */}
                 {navItems.map((item) => (
                   <a
@@ -44,8 +44,8 @@ const Header = () => {
                     // Updated class logic for active/inactive states
                     className={`text-sm font-medium transition-colors px-3 py-1 rounded-full ${
                       item.active
-                        ? 'text-white underline cursor-default' // Active: White text, underlined, no background or hover effects
-                        : 'text-gray-200 hover:text-white' // Inactive: Light gray text, brightens to white on hover
+                        ? 'text-black underline cursor-default' // Active: White text, underlined, no background or hover effects
+                        : 'text-black-200 hover:text-black' // Inactive: Light gray text, brightens to white on hover
                     }`}
                   >
                     {item.name}
