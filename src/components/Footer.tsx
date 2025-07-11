@@ -4,86 +4,72 @@ import { Facebook, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-primary text-primary-foreground">
+    <footer className="bg-[#434935] text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {/* Column 1 - Logo and Social (Centered on Mobile) */}
+          {/* Column 1 - Logo and Social */}
           <div className="space-y-6 text-center lg:text-left">
-            <div className="text-3xl font-bold font-unna text-primary-foreground">
-              EARLY
+            <div className="flex justify-center lg:justify-start">
+              <img
+                src="/lovable-uploads/742fd2f1-7617-4622-bb00-40422b00ca21.png"
+                alt="EARLY"
+                className="h-8 w-auto filter brightness-0 invert"
+              />
             </div>
-            <p className="text-primary-foreground/80 font-satoshi">
-              Medically-guided weight loss that works with your biology, not against it.
-            </p>
             <div className="flex justify-center lg:justify-start space-x-4">
-              <a href="#" className="bg-primary-foreground/10 p-2 rounded-lg hover:bg-primary-foreground/20 transition-colors">
-                <Facebook className="w-5 h-5" />
+              <a href="#" className="bg-white p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <Facebook className="w-5 h-5 text-[#434935]" />
               </a>
-              <a href="#" className="bg-primary-foreground/10 p-2 rounded-lg hover:bg-primary-foreground/20 transition-colors">
-                <Instagram className="w-5 h-5" />
+              <a href="#" className="bg-white p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <Instagram className="w-5 h-5 text-[#434935]" />
               </a>
-              <a href="#" className="bg-primary-foreground/10 p-2 rounded-lg hover:bg-primary-foreground/20 transition-colors">
-                <Linkedin className="w-5 h-5" />
+              <a href="#" className="bg-white p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <Linkedin className="w-5 h-5 text-[#434935]" />
               </a>
-              <a href="#" className="bg-primary-foreground/10 p-2 rounded-lg hover:bg-primary-foreground/20 transition-colors">
-                <MessageCircle className="w-5 h-5" />
-              </a>
-            </div>
-          </div>
-
-          {/* Column 2 - Programs */}
-          <div className="text-center lg:text-left">
-            <h4 className="text-lg font-bold font-satoshi mb-4">Programs</h4>
-            <div className="space-y-3">
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Medical Weight Loss
-              </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Metabolic Diagnosis
-              </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Nutritionist Guidance
-              </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Health Coaching
+              <a href="#" className="bg-white p-2 rounded-lg hover:bg-gray-100 transition-colors">
+                <MessageCircle className="w-5 h-5 text-[#434935]" />
               </a>
             </div>
           </div>
 
-          {/* Column 3 - Company */}
+          {/* Column 2 - Navigation */}
           <div className="text-center lg:text-left">
-            <h4 className="text-lg font-bold font-satoshi mb-4">Company</h4>
             <div className="space-y-3">
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                About Us
+              <a href="https://early.fit" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Home
               </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Science & Research
+              <a href="https://early.fit/#program" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Early Program
               </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Success Stories
-              </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Careers
+              <a href="https://early.fit/medications" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Medications
               </a>
             </div>
           </div>
 
-          {/* Column 4 - Support */}
+          {/* Column 3 - More Links */}
           <div className="text-center lg:text-left">
-            <h4 className="text-lg font-bold font-satoshi mb-4">Support</h4>
             <div className="space-y-3">
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Help Center
+              <a href="https://early.fit/calculators" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Calculators
               </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Contact Us
+              <a href="https://blog.early.fit" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Blogs
               </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+              <a href="https://early.fit/research" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Research
+              </a>
+            </div>
+          </div>
+
+          {/* Column 4 - Legal */}
+          <div className="text-center lg:text-left">
+            <div className="space-y-3">
+              <a href="https://early.fit/termsandconditon" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
+                Terms & Conditions
+              </a>
+              <a href="https://early.fit/privacypolicy" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
                 Privacy Policy
-              </a>
-              <a href="#" className="block text-primary-foreground/80 hover:text-primary-foreground transition-colors font-satoshi">
-                Terms of Service
               </a>
             </div>
           </div>

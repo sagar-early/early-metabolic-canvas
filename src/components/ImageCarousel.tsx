@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ZoomIn } from 'lucide-react';
+import { ChevronLeft, ChevronRight, ZoomIn, X } from 'lucide-react';
 
 const ImageCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -58,48 +58,61 @@ const ImageCarousel = () => {
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative w-full h-126 overflow-hidden rounded-2xl shadow-2xl group">
+      <div className="relative w-full h-96 lg:h-126 overflow-hidden rounded-2xl shadow-2xl group">
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
           className="w-full h-full object-cover cursor-pointer transition-transform duration-300 group-hover:scale-105"
+          onClick={handleZoomToggle}
         />
-      
-
-        {/* Navigation Arrows */}
+        
+        {/* Zoom Icon */}
         <button
-          onClick={goToPrevious}
-          className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
+          onClick={handleZoomToggle}
+          className="absolute top-4 right-4 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100"
         >
-          <ChevronLeft className="w-5 h-5 text-primary" />
-        </button>
-        <button
-          onClick={goToNext}
-          className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all"
-        >
-          <ChevronRight className="w-5 h-5 text-primary" />
+          <ZoomIn className="w-5 h-5 text-primary" />
         </button>
       </div>
 
-      {/* Thumbnail Navigation */}
-      <div className="flex space-x-3 justify-center">
-        {images.map((image, index) => (
-          <button
-            key={index}
-            onClick={() => handleImageClick(index)}
-            className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all ${
-              index === currentIndex 
-                ? 'border-white shadow-lg scale-110' 
-                : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
-            }`}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-full object-cover"
-            />
-          </button>
-        ))}
+      {/* Navigation with Thumbnails */}
+      <div className="flex items-center justify-center space-x-3">
+        {/* Left Arrow */}
+        <button
+          onClick={goToPrevious}
+          className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all flex-shrink-0"
+        >
+          <ChevronLeft className="w-5 h-5 text-primary" />
+        </button>
+
+        {/* Thumbnails */}
+        <div className="flex space-x-2">
+          {images.map((image, index) => (
+            <button
+              key={index}
+              onClick={() => handleImageClick(index)}
+              className={`w-24 h-24 rounded-lg overflow-hidden border-2 transition-all ${
+                index === currentIndex 
+                  ? 'border-white shadow-lg scale-110' 
+                  : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
+              }`}
+            >
+              <img
+                src={image.src}
+                alt={image.alt}
+                className="w-full h-full object-cover"
+              />
+            </button>
+          ))}
+        </div>
+
+        {/* Right Arrow */}
+        <button
+          onClick={goToNext}
+          className="bg-white/80 hover:bg-white p-2 rounded-full shadow-lg transition-all flex-shrink-0"
+        >
+          <ChevronRight className="w-5 h-5 text-primary" />
+        </button>
       </div>
 
       {/* Zoom Modal */}

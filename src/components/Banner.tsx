@@ -2,13 +2,35 @@
 import React from 'react';
 
 const Banner = () => {
+  const tickerText = "Complete Metabolic Diagnosis Package • 70% Off Limited Time • Expert Medical Analysis • At-Home Lab Testing • Doctor Consultation • Personalized Nutrition Plan • Root Cause Discovery • Metabolic Clarity";
+
   return (
-    <section className="bg-accent py-3">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-primary font-satoshi font-semibold text-sm sm:text-base">
-          🎉 Complete Metabolic Diagnosis Package - Now Available at 70% Off! 
-          <span className="ml-2 font-bold">Limited Time Offer</span>
-        </p>
+    <section className="bg-[#c6f15b] py-3 overflow-hidden">
+      <div className="flex items-center">
+        <div className="animate-slide-left whitespace-nowrap">
+          <span className="text-primary font-satoshi font-semibold text-sm sm:text-base inline-flex items-center">
+            {tickerText.split(' • ').map((text, index) => (
+              <React.Fragment key={index}>
+                <span className="mx-4">{text}</span>
+                {index < tickerText.split(' • ').length - 1 && (
+                  <span className="w-2 h-2 bg-[#434935] rounded-full mx-4"></span>
+                )}
+              </React.Fragment>
+            ))}
+          </span>
+        </div>
+        <div className="animate-slide-left whitespace-nowrap">
+          <span className="text-primary font-satoshi font-semibold text-sm sm:text-base inline-flex items-center">
+            {tickerText.split(' • ').map((text, index) => (
+              <React.Fragment key={index}>
+                <span className="mx-4">{text}</span>
+                {index < tickerText.split(' • ').length - 1 && (
+                  <span className="w-2 h-2 bg-[#434935] rounded-full mx-4"></span>
+                )}
+              </React.Fragment>
+            ))}
+          </span>
+        </div>
       </div>
     </section>
   );
