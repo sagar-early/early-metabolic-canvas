@@ -6,16 +6,57 @@ import ImageCarousel from './ImageCarousel';
 
 const HeroSection = () => {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-neutral-light to-white pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+    <section className="min-h-screen bg-neutral-light">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 lg:py-12">
+        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          {/* Mobile: Product Details First */}
+          <div className="lg:hidden space-y-6">
+            {/* Module 1: Header & Trust Signal */}
+            <div className="space-y-4">
+              <h1 className="text-3xl font-bold text-primary font-unna leading-tight">
+                Metabolic Diagnosis Test
+              </h1>
+              <p className="text-lg text-gray-700 font-satoshi font-medium">
+                The First Step to Your Medically-Guided Weight Loss Journey
+              </p>
+              <div className="flex items-center space-x-2">
+                <div className="flex text-yellow-400">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 fill-current" />
+                  ))}
+                </div>
+                <span className="text-gray-700 font-satoshi font-semibold text-sm">
+                  4.8 (Based on 300+ Reviews)
+                </span>
+              </div>
+            </div>
+
+            {/* Mobile CTA - Sticky */}
+            <div className="bg-white p-4 rounded-xl border border-gray-100 shadow-lg sticky top-20 z-40">
+              <div className="flex items-center space-x-3 mb-3">
+                <span className="text-2xl font-bold text-primary font-satoshi">
+                  ₹1,499
+                </span>
+                <span className="text-lg text-gray-500 line-through font-satoshi">
+                  MRP ₹4,999
+                </span>
+                <span className="bg-accent text-accent-foreground px-2 py-1 rounded-full text-xs font-satoshi font-bold">
+                  Save 70%
+                </span>
+              </div>
+              <Button className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-3 text-base rounded-xl">
+                Buy Your Diagnosis Test Now
+              </Button>
+            </div>
+          </div>
+
           {/* Left Column - Image Carousel */}
-          <div className="animate-fade-in">
+          <div className="animate-fade-in order-2 lg:order-1">
             <ImageCarousel />
           </div>
 
-          {/* Right Column - Product Details */}
-          <div className="space-y-8 animate-fade-in">
+          {/* Right Column - Product Details (Desktop) */}
+          <div className="hidden lg:flex lg:flex-col space-y-8 animate-fade-in order-1 lg:order-2">
             {/* Module 1: Header & Trust Signal */}
             <div className="space-y-4">
               <h1 className="text-4xl lg:text-5xl font-bold text-primary font-unna leading-tight">
@@ -95,7 +136,7 @@ const HeroSection = () => {
             </div>
 
             {/* Module 4: Purchase & CTA Block */}
-            <div className="bg-neutral-light p-8 rounded-2xl border border-gray-100 shadow-lg">
+            <div className="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg">
               <h3 className="text-2xl font-bold text-primary font-unna mb-4">
                 Complete Diagnostic Package
               </h3>
@@ -123,6 +164,58 @@ const HeroSection = () => {
               <div className="flex items-center justify-center space-x-2 mt-4 text-sm text-gray-600">
                 <Lock className="w-4 h-4" />
                 <span className="font-satoshi">Secure SSL Encrypted Payment</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile: Additional Content */}
+          <div className="lg:hidden space-y-6 order-3">
+            {/* Core Description */}
+            <div className="space-y-4">
+              <p className="text-base text-gray-800 font-satoshi leading-relaxed">
+                Stop guessing. This medical diagnosis uncovers the root biological cause of your weight gain, 
+                making it the essential first step towards our full medical program—proven to help eligible 
+                users lose up to 20% of their body weight.*
+              </p>
+              <p className="text-xs text-gray-500 font-satoshi">
+                *Based on clinical studies of GLP-1 treatments over a 68-week period when combined with a 
+                reduced-calorie diet and increased physical activity. Individual results may vary.
+              </p>
+            </div>
+
+            {/* Key Benefits */}
+            <div className="grid grid-cols-2 gap-4">
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="bg-accent/20 p-3 rounded-lg">
+                  <Search className="w-5 h-5 text-primary" />
+                </div>
+                <p className="font-satoshi font-semibold text-gray-800 text-sm">
+                  Identify Your Root Cause
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="bg-accent/20 p-3 rounded-lg">
+                  <User className="w-5 h-5 text-primary" />
+                </div>
+                <p className="font-satoshi font-semibold text-gray-800 text-sm">
+                  Doctor Consultation
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="bg-accent/20 p-3 rounded-lg">
+                  <Droplets className="w-5 h-5 text-primary" />
+                </div>
+                <p className="font-satoshi font-semibold text-gray-800 text-sm">
+                  At-Home Lab Test
+                </p>
+              </div>
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="bg-accent/20 p-3 rounded-lg">
+                  <FileText className="w-5 h-5 text-primary" />
+                </div>
+                <p className="font-satoshi font-semibold text-gray-800 text-sm">
+                  Nutritionist Guidance
+                </p>
               </div>
             </div>
           </div>
