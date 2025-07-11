@@ -58,7 +58,7 @@ const ImageCarousel = () => {
   return (
     <div className="space-y-4">
       {/* Main Image */}
-      <div className="relative w-full h-96 overflow-hidden rounded-2xl shadow-2xl group">
+      <div className="relative w-full h-126 overflow-hidden rounded-2xl shadow-2xl group">
         <img
           src={images[currentIndex].src}
           alt={images[currentIndex].alt}
