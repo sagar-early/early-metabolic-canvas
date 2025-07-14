@@ -82,8 +82,8 @@ const HeroSection = () => {
               <p className="text-lg text-gray-800 font-satoshi leading-relaxed">
                 Stop guessing. This medical diagnosis uncovers the root biological cause of your weight gain, 
                 making it the essential first step towards our full medical program—proven to help eligible 
-                users lose up to 20% of their body weight.* Our doctors analyze 35+ metabolic markers to 
-                create a plan that works for <em>your</em> body.
+                users <b>lose up to 20% of their body weight*</b> Our doctors analyze 35+ metabolic markers to 
+                create a plan that works for your body.
               </p>
               <p className="text-xs text-gray-500 font-satoshi">
                 *Based on clinical studies of GLP-1 treatments over a 68-week period when combined with a 
