@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, ZoomIn, X } from 'lucide-react';
 
@@ -38,7 +37,7 @@ const ImageCarousel = () => {
   }, [images.length]);
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
   };
@@ -54,6 +53,21 @@ const ImageCarousel = () => {
   const handleZoomToggle = () => {
     setShowZoom(!showZoom);
   };
+
+  // --- START: NEW LOGIC TO CALCULATE VISIBLE THUMBNAILS ---
+  let sliceStart = 0;
+  // This logic ensures the active thumbnail is centered, handling edge cases at the start and end.
+  if (images.length > 3) {
+    if (currentIndex === 0) {
+      sliceStart = 0; // If first image is active, show images 0, 1, 2
+    } else if (currentIndex === images.length - 1) {
+      sliceStart = images.length - 3; // If last image is active, show the last 3 images
+    } else {
+      sliceStart = currentIndex - 1; // Otherwise, show previous, current, and next
+    }
+  }
+  const visibleThumbnails = images.slice(sliceStart, sliceStart + 3);
+  // --- END: NEW LOGIC ---
 
   return (
     <div className="space-y-4">
@@ -85,26 +99,32 @@ const ImageCarousel = () => {
           <ChevronLeft className="w-6 h-6 text-primary" />
         </button>
 
+        {/* --- START: MODIFIED THUMBNAILS MAPPING --- */}
         {/* Thumbnails */}
         <div className="flex space-x-2">
-          {images.map((image, index) => (
-            <button
-              key={index}
-              onClick={() => handleImageClick(index)}
-              className={`w-32 h-32 rounded-lg overflow-hidden border-2 transition-all ${
-                index === currentIndex 
-                  ? 'border-white shadow-lg scale-110' 
-                  : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
-              }`}
-            >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className="w-full h-full object-cover"
-              />
-            </button>
-          ))}
+          {visibleThumbnails.map((image, index) => {
+            // We need the original index from the main `images` array for the key and onClick handler
+            const originalIndex = sliceStart + index;
+            return (
+              <button
+                key={originalIndex}
+                onClick={() => handleImageClick(originalIndex)}
+                className={`w-32 h-32 rounded-lg overflow-hidden border-2 transition-all ${
+                  originalIndex === currentIndex
+                    ? 'border-white shadow-lg scale-110'
+                    : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
+                }`}
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover"
+                />
+              </button>
+            );
+          })}
         </div>
+        {/* --- END: MODIFIED THUMBNAILS MAPPING --- */}
 
         {/* Right Arrow */}
         <button
@@ -133,8 +153,8 @@ const ImageCarousel = () => {
                 key={index}
                 onClick={() => handleImageClick(index)}
                 className={`w-20 h-20 rounded-lg overflow-hidden border-2 transition-all flex-shrink-0 ${
-                  index === currentIndex 
-                    ? 'border-white shadow-lg scale-110' 
+                  index === currentIndex
+                    ? 'border-white shadow-lg scale-110'
                     : 'border-gray-300 hover:border-primary opacity-70 hover:opacity-100'
                 }`}
               >
@@ -159,7 +179,7 @@ const ImageCarousel = () => {
 
       {/* Zoom Modal */}
       {showZoom && (
-        <div 
+        <div
           className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4"
           onClick={handleZoomToggle}
         >
