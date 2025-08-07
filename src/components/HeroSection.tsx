@@ -1,10 +1,17 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Search, User, Droplets, FileText } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
+import BookingFlow from './BookingFlow';
 
 const HeroSection = () => {
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+  const handleBookingClick = () => {
+    setIsBookingOpen(true);
+  };
+
   return (
     <section className="min-h-screen bg-neutral-light">
       <div className="w-full py-4 lg:py-8">
@@ -44,9 +51,17 @@ const HeroSection = () => {
                   Save 70%
                 </span>
               </div>
-              <Button className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-3 text-base rounded-full">
-                Book Your Diagnosis Test Now
-              </Button>
+              <div className="space-y-2">
+                <Button 
+                  onClick={handleBookingClick}
+                  className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-3 text-base rounded-full"
+                >
+                  Book Your Diagnosis Test!
+                </Button>
+                <p className="text-xs text-gray-500 font-satoshi text-center">
+                  *Tested in large multi-centre international clinical trials for more than 88 weeks
+                </p>
+              </div>
             </div>
           </div>
 
@@ -157,9 +172,17 @@ const HeroSection = () => {
                 Includes all tests, consultations, and your personalized plan.
               </p>
               
-              <Button className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-4 text-lg rounded-full transition-all transform hover:scale-[1.02] shadow-lg">
-                Book Your Diagnosis Test Now
-              </Button>
+              <div className="space-y-2">
+                <Button 
+                  onClick={handleBookingClick}
+                  className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-4 text-lg rounded-full transition-all transform hover:scale-[1.02] shadow-lg"
+                >
+                  Book Your Diagnosis Test!
+                </Button>
+                <p className="text-xs text-gray-500 font-satoshi text-center">
+                  *Tested in large multi-centre international clinical trials for more than 88 weeks
+                </p>
+              </div>
             </div>
           </div>
 
@@ -219,6 +242,12 @@ const HeroSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Booking Flow Modal */}
+      <BookingFlow 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)} 
+      />
     </section>
   );
 };
