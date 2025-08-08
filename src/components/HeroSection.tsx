@@ -19,7 +19,7 @@ const HeroSection = () => {
           <div className="lg:hidden space-y-3 px-4 sm:px-6">
             {/* Module 1: Header & Trust Signal */}
             <div className="space-y-2">
-              <h1 className="text-3xl font-bold text-primary font-unna leading-tight">
+              <h1 className="text-3xl font-bold text-primary font-satoshi leading-tight">
                 Metabolic Diagnosis Test
               </h1>
               <p className="text-lg text-gray-700 font-satoshi font-medium">
@@ -61,8 +61,8 @@ const HeroSection = () => {
 
           {/* Mobile Bottom Sheet Checkout */}
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-            <SheetContent side="bottom" className="rounded-t-3xl p-0 bg-background border-t overflow-visible">
-              <CheckoutFlow onClose={() => setIsSheetOpen(false)} />
+            <SheetContent side="bottom" className="p-0 bg-transparent border-0">
+              <CheckoutFlow asSheet onClose={() => setIsSheetOpen(false)} />
             </SheetContent>
           </Sheet>
 
@@ -75,7 +75,7 @@ const HeroSection = () => {
           <div className="hidden lg:flex lg:flex-col space-y-4 animate-fade-in order-1 lg:order-2 px-8 lg:px-12 xl:px-16">
             {/* Module 1: Header & Trust Signal */}
             <div className="space-y-3">
-              <h1 className="text-4xl xl:text-5xl font-bold text-primary font-unna leading-tight">
+              <h1 className="text-4xl xl:text-5xl font-bold text-primary font-satoshi leading-tight">
                 Metabolic Diagnosis Test
               </h1>
               <p className="text-xl text-gray-700 font-satoshi font-medium">
@@ -157,7 +157,7 @@ const HeroSection = () => {
                 <CheckoutFlow />
               ) : (
                 <>
-                  <h3 className="text-2xl font-bold text-primary font-unna mb-4">
+                  <h3 className="text-2xl font-bold text-primary font-satoshi mb-4">
                     Complete Diagnostic Package
                   </h3>
                   

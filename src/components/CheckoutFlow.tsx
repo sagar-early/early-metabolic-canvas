@@ -10,11 +10,12 @@ type Step = "info" | "otp" | "payment" | "simulate" | "failed";
 interface CheckoutFlowProps {
   className?: string;
   onClose?: () => void; // optional for bottom sheet use
+  asSheet?: boolean; // render as bottom sheet container
 }
 
 const priceInINR = 1499;
 
-const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
+const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose, asSheet = false }) => {
   const navigate = useNavigate();
 
   const [step, setStep] = React.useState<Step>("info");
@@ -60,10 +61,20 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
   const handleSimulateFailure = () => setStep("failed");
 
   return (
-    <div className={`bg-white rounded-2xl p-6 shadow-lg ${className ?? ""}`}>
+    <div className={`${asSheet ? "rounded-t-3xl bg-neutral-light" : "bg-white rounded-2xl"} p-6 shadow-lg ${className ?? ""}`}>
+      {asSheet && (
+        <div className="flex justify-center">
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={onClose}
+            className="h-1.5 w-12 rounded-full bg-muted mb-2"
+          />
+        </div>
+      )}
       {step === "info" && (
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl font-unna text-primary text-center">Your first step to lasting results.</h2>
+          <h2 className="text-3xl font-satoshi text-primary text-center">Your first step to lasting results.</h2>
           <p className="text-base font-satoshi text-primary-soft text-center">
             Our full program is proven to help users lose up to 20% of their body weight.*
           </p>
@@ -77,7 +88,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g., Ananya Sharma"
-                className="bg-white"
+                className="bg-transparent text-foreground placeholder:text-muted-foreground"
               />
             </div>
 
@@ -85,8 +96,8 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
               <label className="block text-sm font-medium font-satoshi text-primary-medium">
                 Mobile Number
               </label>
-              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring bg-white">
-                <span className="pl-3 pr-2 text-sm text-primary font-satoshi select-none">+91</span>
+              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring bg-transparent">
+                <span className="pl-3 pr-2 text-sm text-foreground font-satoshi select-none">+91</span>
                 <Input
                   type="tel"
                   inputMode="numeric"
@@ -97,7 +108,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
                     const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
                     setMobile(digits);
                   }}
-                  className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 bg-transparent text-foreground placeholder:text-muted-foreground"
                 />
               </div>
             </div>
@@ -119,7 +130,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
       {step === "otp" && (
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl font-unna text-primary text-center">Verify Your Number</h2>
+          <h2 className="text-3xl font-satoshi text-primary text-center">Verify Your Number</h2>
           <p className="text-base font-satoshi text-primary-soft text-center">
             An OTP has been sent to +91 {mobile}
           </p>
@@ -129,10 +140,10 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
             <label className="block text-sm font-medium font-satoshi text-primary-medium">
               Enter 6-Digit OTP
             </label>
-            <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-              <InputOTPGroup>
+            <InputOTP maxLength={6} value={otp} onChange={setOtp} containerClassName="w-full">
+              <InputOTPGroup className="grid grid-cols-6 gap-2 w-full">
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg border-primary rounded-md" />
+                  <InputOTPSlot key={i} index={i} className="h-12 w-full text-lg rounded-md border border-input bg-transparent" />
                 ))}
               </InputOTPGroup>
             </InputOTP>
@@ -167,7 +178,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
       {step === "payment" && (
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-2xl font-unna text-primary text-center">Almost there!</h2>
+          <h2 className="text-2xl font-satoshi text-primary text-center">Almost there!</h2>
           <div className="rounded-xl border border-input p-4 bg-neutral-light">
             <div className="flex items-center justify-between text-sm font-satoshi">
               <span className="text-primary-medium">Item</span>
@@ -204,7 +215,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
       {step === "failed" && (
         <div className="space-y-6 animate-fade-in text-center">
           <XCircle className="w-14 h-14 text-error mx-auto" />
-          <h2 className="text-2xl font-unna text-primary">Payment Failed</h2>
+          <h2 className="text-2xl font-satoshi text-primary">Payment Failed</h2>
           <p className="text-primary-medium font-satoshi">
             Unfortunately, your transaction could not be completed. Please try again.
           </p>
