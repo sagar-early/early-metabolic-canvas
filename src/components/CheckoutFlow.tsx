@@ -85,7 +85,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
               <label className="block text-sm font-medium font-satoshi text-primary-medium">
                 Mobile Number
               </label>
-              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring">
+              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring bg-white">
                 <span className="pl-3 pr-2 text-sm text-primary font-satoshi select-none">+91</span>
                 <Input
                   type="tel"
@@ -130,13 +130,12 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
               Enter 6-Digit OTP
             </label>
             <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-  {/* Add the gap utility class here */}
-  <InputOTPGroup className="gap-2">
-    {Array.from({ length: 6 }).map((_, i) => (
-      <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg border-primary rounded-md" />
-    ))}
-  </InputOTPGroup>
-</InputOTP>
+              <InputOTPGroup>
+                {Array.from({ length: 6 }).map((_, i) => (
+                  <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg border-primary rounded-md" />
+                ))}
+              </InputOTPGroup>
+            </InputOTP>
             <div className="text-center text-sm font-satoshi text-primary-soft">
               {resendIn > 0 ? (
                 <span>Resend in {resendIn} seconds</span>
