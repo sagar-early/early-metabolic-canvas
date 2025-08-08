@@ -61,11 +61,8 @@ const HeroSection = () => {
 
           {/* Mobile Bottom Sheet Checkout */}
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-            <SheetContent side="bottom" className="h-[80vh] rounded-t-3xl p-0 overflow-auto">
-              <div className="mx-auto w-full max-w-md p-4">
-                <div className="mx-auto mt-2 mb-4 h-1.5 w-12 rounded-full bg-primary-soft" />
-                <CheckoutFlow onClose={() => setIsSheetOpen(false)} />
-              </div>
+            <SheetContent side="bottom" className="rounded-t-3xl p-0 bg-background border-t overflow-visible">
+              <CheckoutFlow onClose={() => setIsSheetOpen(false)} />
             </SheetContent>
           </Sheet>
 
