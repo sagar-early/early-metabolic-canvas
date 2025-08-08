@@ -71,7 +71,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
           <div className="space-y-4">
             <div className="space-y-2">
               <label className="block text-sm font-medium font-satoshi text-primary-medium">
-                Patient's Full Name
+                Full Name
               </label>
               <Input
                 value={name}
@@ -83,9 +83,9 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
             <div className="space-y-2">
               <label className="block text-sm font-medium font-satoshi text-primary-medium">
-                Patient's Mobile Number
+                Mobile Number
               </label>
-              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring bg-background">
+              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring">
                 <span className="pl-3 pr-2 text-sm text-primary font-satoshi select-none">+91</span>
                 <Input
                   type="tel"
