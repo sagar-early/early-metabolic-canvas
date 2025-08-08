@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import sparrowImg from "@/assets/sparrow.png";
+
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -55,7 +55,7 @@ const ThankYou: React.FC = () => {
             <div className="mt-6 md:mt-8">
               <div className="grid grid-cols-1 md:grid-cols-[auto,1fr] gap-4 md:gap-6 items-center">
                 <img
-                  src={sparrowImg}
+                  src="/lovable-uploads/0f0b20c3-4818-44d2-86b9-1b72891bc98f.png"
                   alt="Early sparrow mascot"
                   className="mx-auto md:mx-0 w-40 h-40 md:w-56 md:h-56 object-contain"
                   loading="lazy"
