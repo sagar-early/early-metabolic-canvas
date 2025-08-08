@@ -45,7 +45,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
   const handleVerify = () => {
     if (!canVerify) return;
-    setStep("payment");
+    setStep("simulate");
   };
 
   const handlePay = () => {
@@ -106,7 +106,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
           <Button
             onClick={handleGenerateOtp}
             disabled={!canGenerateOtp}
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-md py-3"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3"
           >
             Generate OTP
           </Button>
@@ -124,14 +124,6 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
             An OTP has been sent to +91 {mobile}
           </p>
 
-          <div className="space-y-2">
-            <label className="block text-sm font-medium font-satoshi text-primary-medium">
-              Patient's Full Name
-            </label>
-            <div className="h-10 rounded-md border border-input bg-background px-3 flex items-center text-sm text-foreground">
-              {name}
-            </div>
-          </div>
 
           <div className="space-y-3">
             <label className="block text-sm font-medium font-satoshi text-primary-medium">
@@ -140,7 +132,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
             <InputOTP maxLength={6} value={otp} onChange={setOtp}>
               <InputOTPGroup>
                 {Array.from({ length: 6 }).map((_, i) => (
-                  <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg" />
+                  <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg border-primary rounded-md" />
                 ))}
               </InputOTPGroup>
             </InputOTP>
@@ -158,7 +150,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
           <Button
             onClick={handleVerify}
             disabled={!canVerify}
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-md py-3"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3"
           >
             Verify & Proceed to Payment
           </Button>
@@ -187,7 +179,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
             </div>
           </div>
 
-          <Button onClick={handlePay} className="w-full bg-success text-white hover:bg-success/90 rounded-md py-3">
+          <Button onClick={handlePay} className="w-full bg-success text-white hover:bg-success/90 rounded-full py-3">
             Pay ₹{priceInINR.toLocaleString("en-IN")} Now
           </Button>
 
@@ -200,10 +192,10 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
       {step === "simulate" && (
         <div className="space-y-4 animate-fade-in">
-          <Button onClick={handleSimulateSuccess} className="w-full bg-success text-white hover:bg-success/90 rounded-md py-3">
+          <Button onClick={handleSimulateSuccess} className="w-full bg-success text-white hover:bg-success/90 rounded-full py-3">
             Simulate Payment Success
           </Button>
-          <Button onClick={handleSimulateFailure} className="w-full bg-error text-white hover:bg-error/90 rounded-md py-3">
+          <Button onClick={handleSimulateFailure} className="w-full bg-error text-white hover:bg-error/90 rounded-full py-3">
             Simulate Payment Failure
           </Button>
         </div>
@@ -216,7 +208,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
           <p className="text-primary-medium font-satoshi">
             Unfortunately, your transaction could not be completed. Please try again.
           </p>
-          <Button onClick={() => setStep("payment")} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-md py-3">
+          <Button onClick={() => setStep("payment")} className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3">
             Retry Payment
           </Button>
         </div>
