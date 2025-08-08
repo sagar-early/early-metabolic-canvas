@@ -81,47 +81,27 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
               />
             </div>
 
-           <div className="space-y-2">
-
-              <label className="block text-sm font-medium font-satoshi text-primary-medium">
-
-                Mobile Number
-
-              </label>
-
-              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring bg-white">
-
-                <span className="pl-3 pr-2 text-sm text-primary font-satoshi select-none">+91</span>
-
-                <Input
-
-                  type="tel"
-
-                  inputMode="numeric"
-
-                  pattern="[0-9]*"
-
-                  placeholder="Enter your 10-digit mobile number"
-
-                  value={mobile}
-
-                  onChange={(e) => {
-
-                    const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
-
-                    setMobile(digits);
-
-                  }}
-
-                  className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
-
-                />
-
-              </div>
-
-            </div>
-
-          </div>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium font-satoshi text-primary-medium">
+                Mobile Number
+              </label>
+              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring">
+                <span className="pl-3 pr-2 text-sm text-primary font-satoshi select-none">+91</span>
+                <Input
+                  type="tel"
+                  inputMode="numeric"
+                  pattern="[0-9]*"
+                  placeholder="Enter your 10-digit mobile number"
+                  value={mobile}
+                  onChange={(e) => {
+                    const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
+                    setMobile(digits);
+                  }}
+                  className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                />
+              </div>
+            </div>
+          </div>
 
           <Button
             onClick={handleGenerateOtp}
