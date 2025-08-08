@@ -61,10 +61,9 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
   return (
     <div className={`bg-white rounded-2xl p-6 shadow-lg ${className ?? ""}`}>
-      {onClose && <div className="mx-auto mt-1 mb-4 h-1.5 w-12 rounded-full bg-primary-soft" />}
       {step === "info" && (
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl font-satoshi text-primary text-center">Your first step to lasting results.</h2>
+          <h2 className="text-3xl font-unna text-primary text-center">Your first step to lasting results.</h2>
           <p className="text-base font-satoshi text-primary-soft text-center">
             Our full program is proven to help users lose up to 20% of their body weight.*
           </p>
@@ -78,7 +77,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g., Ananya Sharma"
-                className="bg-white text-primary placeholder:text-primary-soft"
+                className="bg-white"
               />
             </div>
 
@@ -86,7 +85,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
               <label className="block text-sm font-medium font-satoshi text-primary-medium">
                 Mobile Number
               </label>
-              <div className="flex items-center rounded-md border border-input bg-white focus-within:ring-2 focus-within:ring-ring">
+              <div className="flex items-center rounded-md border border-input focus-within:ring-2 focus-within:ring-ring">
                 <span className="pl-3 pr-2 text-sm text-primary font-satoshi select-none">+91</span>
                 <Input
                   type="tel"
@@ -98,7 +97,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
                     const digits = e.target.value.replace(/\D/g, "").slice(0, 10);
                     setMobile(digits);
                   }}
-                  className="border-0 bg-white text-primary placeholder:text-primary-soft focus-visible:ring-0 focus-visible:ring-offset-0"
+                  className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                 />
               </div>
             </div>
@@ -107,7 +106,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
           <Button
             onClick={handleGenerateOtp}
             disabled={!canGenerateOtp}
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3 font-satoshi font-bold"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3"
           >
             Generate OTP
           </Button>
@@ -120,7 +119,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
       {step === "otp" && (
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-3xl font-satoshi text-primary text-center">Verify Your Number</h2>
+          <h2 className="text-3xl font-unna text-primary text-center">Verify Your Number</h2>
           <p className="text-base font-satoshi text-primary-soft text-center">
             An OTP has been sent to +91 {mobile}
           </p>
@@ -131,12 +130,13 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
               Enter 6-Digit OTP
             </label>
             <InputOTP maxLength={6} value={otp} onChange={setOtp}>
-              <InputOTPGroup className="gap-2 justify-center">
-                {Array.from({ length: 6 }).map((_, i) => (
-                  <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg border-primary rounded-md bg-white text-primary" />
-                ))}
-              </InputOTPGroup>
-            </InputOTP>
+  {/* Add the gap utility class here */}
+  <InputOTPGroup className="gap-2">
+    {Array.from({ length: 6 }).map((_, i) => (
+      <InputOTPSlot key={i} index={i} className="w-10 h-12 text-lg border-primary rounded-md" />
+    ))}
+  </InputOTPGroup>
+</InputOTP>
             <div className="text-center text-sm font-satoshi text-primary-soft">
               {resendIn > 0 ? (
                 <span>Resend in {resendIn} seconds</span>
@@ -151,7 +151,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
           <Button
             onClick={handleVerify}
             disabled={!canVerify}
-            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3 font-satoshi font-bold"
+            className="w-full bg-primary text-primary-foreground hover:bg-primary/90 rounded-full py-3"
           >
             Verify & Proceed to Payment
           </Button>
@@ -168,7 +168,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
 
       {step === "payment" && (
         <div className="space-y-6 animate-fade-in">
-          <h2 className="text-2xl font-satoshi text-primary text-center">Almost there!</h2>
+          <h2 className="text-2xl font-unna text-primary text-center">Almost there!</h2>
           <div className="rounded-xl border border-input p-4 bg-neutral-light">
             <div className="flex items-center justify-between text-sm font-satoshi">
               <span className="text-primary-medium">Item</span>
@@ -205,7 +205,7 @@ const CheckoutFlow: React.FC<CheckoutFlowProps> = ({ className, onClose }) => {
       {step === "failed" && (
         <div className="space-y-6 animate-fade-in text-center">
           <XCircle className="w-14 h-14 text-error mx-auto" />
-          <h2 className="text-2xl font-satoshi text-primary">Payment Failed</h2>
+          <h2 className="text-2xl font-unna text-primary">Payment Failed</h2>
           <p className="text-primary-medium font-satoshi">
             Unfortunately, your transaction could not be completed. Please try again.
           </p>
