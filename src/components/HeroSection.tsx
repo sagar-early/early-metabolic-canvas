@@ -3,8 +3,14 @@ import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Star, Search, User, Droplets, FileText } from 'lucide-react';
 import ImageCarousel from './ImageCarousel';
+import CheckoutFlow from './CheckoutFlow';
+import { Sheet, SheetContent } from '@/components/ui/sheet';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const HeroSection = () => {
+  const isMobile = useIsMobile();
+  const [showCheckoutDesktop, setShowCheckoutDesktop] = React.useState(false);
+  const [isSheetOpen, setIsSheetOpen] = React.useState(false);
   return (
     <section className="min-h-screen bg-neutral-light">
       <div className="w-full py-4 lg:py-8">
@@ -44,11 +50,24 @@ const HeroSection = () => {
                   Save 70%
                 </span>
               </div>
-              <Button className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-3 text-base rounded-full">
-                Book Your Diagnosis Test Now
+              <Button onClick={() => setIsSheetOpen(true)} className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-3 text-base rounded-full">
+                Buy Your Diagnosis Test Now
               </Button>
+              <p className="mt-2 text-xs text-primary-soft italic text-center">
+                *Based on clinical studies of GLP-1 treatments over a 68-week period. Individual results may vary.
+              </p>
             </div>
           </div>
+
+          {/* Mobile Bottom Sheet Checkout */}
+          <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
+            <SheetContent side="bottom" className="h-[80vh] rounded-t-3xl p-0 overflow-auto">
+              <div className="mx-auto w-full max-w-md p-4">
+                <div className="mx-auto mt-2 mb-4 h-1.5 w-12 rounded-full bg-primary-soft" />
+                <CheckoutFlow onClose={() => setIsSheetOpen(false)} />
+              </div>
+            </SheetContent>
+          </Sheet>
 
           {/* Left Column - Image Carousel */}
           <div className="animate-fade-in order-2 lg:order-1 px-4 sm:px-6 lg:px-0">
@@ -137,29 +156,38 @@ const HeroSection = () => {
 
             {/* Module 4: Purchase & CTA Block */}
             <div className="bg-white p-6 rounded-2xl border border-gray-100 shadow-lg">
-              <h3 className="text-2xl font-bold text-primary font-unna mb-4">
-                Complete Diagnostic Package
-              </h3>
-              
-              <div className="flex items-center space-x-4 mb-4">
-                <span className="text-4xl font-bold text-primary font-satoshi">
-                  ₹1,499
-                </span>
-                <span className="text-xl text-gray-500 line-through font-satoshi">
-                  MRP ₹4,999
-                </span>
-                <span className="bg-[#c6f15b] text-accent-foreground px-3 py-1 rounded-full text-sm font-satoshi font-bold">
-                  Save 70%
-                </span>
-              </div>
-              
-              <p className="text-gray-700 font-satoshi mb-6">
-                Includes all tests, consultations, and your personalized plan.
-              </p>
-              
-              <Button className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-4 text-lg rounded-full transition-all transform hover:scale-[1.02] shadow-lg">
-                Book Your Diagnosis Test Now
-              </Button>
+              {showCheckoutDesktop ? (
+                <CheckoutFlow />
+              ) : (
+                <>
+                  <h3 className="text-2xl font-bold text-primary font-unna mb-4">
+                    Complete Diagnostic Package
+                  </h3>
+                  
+                  <div className="flex items-center space-x-4 mb-4">
+                    <span className="text-4xl font-bold text-primary font-satoshi">
+                      ₹1,499
+                    </span>
+                    <span className="text-xl text-gray-500 line-through font-satoshi">
+                      MRP ₹4,999
+                    </span>
+                    <span className="bg-[#c6f15b] text-accent-foreground px-3 py-1 rounded-full text-sm font-satoshi font-bold">
+                      Save 70%
+                    </span>
+                  </div>
+                  
+                  <p className="text-gray-700 font-satoshi mb-6">
+                    Includes all tests, consultations, and your personalized plan.
+                  </p>
+                  
+                  <Button onClick={() => setShowCheckoutDesktop(true)} className="w-full bg-primary hover:bg-primary-light text-primary-foreground font-satoshi font-bold py-4 text-lg rounded-full transition-all transform hover:scale-[1.02] shadow-lg">
+                    Buy Your Diagnosis Test Now
+                  </Button>
+                  <p className="mt-3 text-xs text-primary-soft italic text-center">
+                    *Based on clinical studies of GLP-1 treatments over a 68-week period. Individual results may vary.
+                  </p>
+                </>
+              )}
             </div>
           </div>
 

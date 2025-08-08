@@ -49,6 +49,14 @@ export default {
 					purple: '#927b9e',
 					foreground: '#393f2d'
 				},
+				success: {
+					DEFAULT: '#5CB85C',
+					foreground: '#ffffff'
+				},
+				error: {
+					DEFAULT: '#D9534F',
+					foreground: '#ffffff'
+				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
 					foreground: 'hsl(var(--popover-foreground))'
