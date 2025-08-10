@@ -71,14 +71,14 @@ const ThankYou: React.FC = () => {
 
             {/* App banner */}
             <div className="mt-8 md:mt-10">
-              <article className="rounded-2xl bg-neutral-cream p-0 shadow-md overflow-hidden w-full h-48 md:h-64">
-                <button type="button" onClick={handleBannerClick} className="block w-full h-full text-left" aria-label="Open app store based on your device">
+              <article className="rounded-2xl bg-neutral-cream p-0 shadow-md overflow-hidden w-full">
+                <button type="button" onClick={handleBannerClick} className="block w-full text-left" aria-label="Open app store based on your device">
                   <picture>
                     <source media="(min-width: 768px)" srcSet="/lovable-uploads/aaeac157-ef38-4890-bf5b-85c0d26db48f.png" />
                     <img
                       src="/lovable-uploads/4041b62a-1541-4c70-aae9-0ed9ed3ce365.png"
                       alt="All your reports and doctor consults on the Early app"
-                      className="w-full h-full object-cover"
+                      className="w-full h-auto object-cover"
                       loading="lazy"
                     />
                   </picture>
