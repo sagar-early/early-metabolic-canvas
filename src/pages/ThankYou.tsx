@@ -45,10 +45,10 @@ const ThankYou: React.FC = () => {
       <Header />
       <main className="min-h-screen bg-neutral-light text-foreground">
         <section className="container py-8 md:py-12">
-          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#939f79' }}>
+          <div className="max-w-4xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-lg">
             {/* Heading */}
             <div className="flex flex-col items-center text-center gap-4 md:gap-6">
-              <h1 className="font-satoshi text-3xl md:text-4xl font-semibold" style={{ color: '#434a35' }}>Thank you, {name}!</h1>
+              <h1 className="font-satoshi text-3xl md:text-4xl text-primary font-semibold">Thank you, {name}!</h1>
             </div>
 
             {/* Coach card with large sparrow: mobile above, desktop left */}
@@ -60,10 +60,10 @@ const ThankYou: React.FC = () => {
                   className="mx-auto md:mx-0 w-40 h-40 md:w-56 md:h-56 object-contain"
                   loading="lazy"
                 />
-                <div className="rounded-2xl p-4 md:p-6 shadow-md text-left" style={{ backgroundColor: '#dbdfd2' }}>
-                  <h3 className="font-satoshi text-2xl mb-2" style={{ color: '#434a35' }}>Our coaches are on it!</h3>
-                  <p className="font-satoshi" style={{ color: '#434a35' }}>
-                    Our nutritionist will reach out to you within 4 hours.
+                <div className="rounded-2xl bg-neutral-cream p-4 md:p-6 shadow-md text-left">
+                  <h3 className="font-satoshi text-2xl text-primary mb-2">Our coaches are on it!</h3>
+                  <p className="font-satoshi text-primary-medium">
+                    Hello, {name}! I'm one of the senior nutritionists at Early. I will personally reach out to you on WhatsApp within the next 4 hours to schedule your at-home test and consultation.
                   </p>
                 </div>
               </div>
@@ -72,19 +72,14 @@ const ThankYou: React.FC = () => {
             {/* App banner and store CTAs */}
             <div className="mt-8 md:mt-10">
               <div className="grid md:grid-cols-[1fr_auto] gap-6 items-stretch">
-                <article className="rounded-2xl p-4 md:p-6 shadow-md overflow-hidden" style={{ backgroundColor: '#434a35' }}>
-                  <div className="mb-4">
-                    <p className="font-satoshi text-white text-lg md:text-xl">
-                      All your reports & doctor consults, just a tap away on the Early app
-                    </p>
-                  </div>
+                <article className="rounded-2xl bg-neutral-cream p-0 shadow-md overflow-hidden">
                   <button type="button" onClick={handleBannerClick} className="block w-full text-left" aria-label="Open app store based on your device">
                     <picture>
                       <source media="(min-width: 768px)" srcSet="/lovable-uploads/aaeac157-ef38-4890-bf5b-85c0d26db48f.png" />
                       <img
                         src="/lovable-uploads/4041b62a-1541-4c70-aae9-0ed9ed3ce365.png"
                         alt="All your reports and doctor consults on the Early app"
-                        className="w-full h-auto object-cover rounded-lg"
+                        className="w-full h-auto object-cover"
                         loading="lazy"
                       />
                     </picture>
