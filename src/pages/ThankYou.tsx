@@ -43,12 +43,12 @@ const ThankYou: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-neutral-light text-foreground">
+      <main className="min-h-screen text-foreground" style={{ backgroundColor: '#939f79' }}>
         <section className="container py-8 md:py-12">
-          <div className="max-w-4xl mx-auto bg-white rounded-2xl p-6 md:p-10 shadow-lg">
+          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#939f79' }}>
             {/* Heading */}
             <div className="flex flex-col items-center text-center gap-4 md:gap-6">
-              <h1 className="font-satoshi text-3xl md:text-4xl text-primary font-semibold">Thank you, {name}!</h1>
+              <h1 className="font-satoshi text-3xl md:text-4xl font-semibold" style={{ color: '#434a35' }}>Thank you, {name}!</h1>
             </div>
 
             {/* Coach card with large sparrow: mobile above, desktop left */}
@@ -60,9 +60,9 @@ const ThankYou: React.FC = () => {
                   className="mx-auto md:mx-0 w-40 h-40 md:w-56 md:h-56 object-contain"
                   loading="lazy"
                 />
-                <div className="rounded-2xl bg-neutral-cream p-4 md:p-6 shadow-md text-left">
-                  <h3 className="font-satoshi text-2xl text-primary mb-2">Our coaches are on it!</h3>
-                  <p className="font-satoshi text-primary-medium">
+                <div className="rounded-2xl p-4 md:p-6 shadow-md text-left w-full md:w-auto md:min-w-[400px]" style={{ backgroundColor: '#dbdfd2' }}>
+                  <h3 className="font-satoshi text-2xl mb-2" style={{ color: '#434a35' }}>Our coaches are on it!</h3>
+                  <p className="font-satoshi" style={{ color: '#000000' }}>
                     Hello, {name}! I'm one of the senior nutritionists at Early. I will personally reach out to you on WhatsApp within the next 4 hours to schedule your at-home test and consultation.
                   </p>
                 </div>
