@@ -43,9 +43,9 @@ const ThankYou: React.FC = () => {
   return (
     <>
       <Header />
-      <main className="min-h-screen text-foreground" style={{ backgroundColor: '#939f79' }}>
+      <main className="min-h-screen text-foreground bg-white">
         <section className="container py-8 md:py-12">
-          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#939f79' }}>
+          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg bg-white">
             {/* Heading */}
             <div className="flex flex-col items-center text-center gap-4 md:gap-6">
               <h1 className="font-satoshi text-3xl md:text-4xl font-semibold" style={{ color: '#434a35' }}>Thank you, {name}!</h1>
