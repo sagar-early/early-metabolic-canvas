@@ -62,7 +62,7 @@ const ThankYou: React.FC = () => {
                   <picture>
                     <source media="(min-width: 768px)" srcSet="/lovable-uploads/fbc92bcb-645d-4a1d-bce9-1f4532c83f86.png" />
                     <img
-                      src="/lovable-uploads/b3de0f4a-f8b3-47c4-b3c0-31c96a75b40c.png"
+                      src="/lovable-uploads/5d369a76-a1ba-47ab-9a27-121bb31cae18.png"
                       alt="All your reports and doctor consults on the Early app"
                       className="w-full h-auto object-cover"
                       loading="lazy"
