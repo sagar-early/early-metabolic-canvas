@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import paymentSuccessTick from "@/assets/payment-success-tick.png";
+import paymentSuccessIcon from "@/assets/payment-success-icon.png";
 
 
 function useQuery() {
@@ -46,47 +46,28 @@ const ThankYou: React.FC = () => {
       <Header />
       <main className="min-h-screen bg-neutral-light text-foreground">
         <section className="container py-8 md:py-12">
-          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#abb597' }}>
-            {/* Payment Confirmation Row */}
-            <div className="flex items-center gap-4 mb-6">
+          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#4343a5' }}>
+            {/* Payment Confirmation Header */}
+            <div className="flex items-center gap-4 mb-8">
               <img
-                src={paymentSuccessTick}
+                src={paymentSuccessIcon}
                 alt="Payment Successful"
-                className="w-16 h-16 md:w-20 md:h-20 object-contain flex-shrink-0"
+                className="w-12 h-12 md:w-16 md:h-16 object-contain flex-shrink-0"
                 loading="lazy"
               />
-              <div className="flex-1">
-                <h1 className="font-satoshi text-2xl md:text-3xl font-semibold text-white mb-1">
-                  Payment successful for Metabolic Diagnosis Test
-                </h1>
-                <p className="font-satoshi text-lg text-white/90">
-                  Amount : 1799/-
-                </p>
-              </div>
+              <h1 className="font-satoshi text-2xl md:text-3xl font-bold text-white">
+                Payment Successful
+              </h1>
             </div>
 
-            {/* WhatsApp Message */}
-            <div className="mb-6">
-              <p className="font-satoshi text-white text-left leading-relaxed">
-                Our team will reach out to you on WhatsApp shortly to schedule your at-home test and doctor consultation.
-              </p>
-            </div>
-
-            {/* App Download Section */}
-            <div className="mb-6">
-              <p className="font-satoshi text-white text-left font-medium">
-                Download the Earlyfit App to get started
-              </p>
-            </div>
-
-            {/* Banner Image */}
+            {/* Hero Image */}
             <div className="mb-6">
               <article className="rounded-2xl bg-neutral-cream p-0 shadow-md overflow-hidden">
                 <button type="button" onClick={handleBannerClick} className="block w-full text-left" aria-label="Open app store based on your device">
                   <picture>
-                    <source media="(min-width: 768px)" srcSet="/lovable-uploads/aaeac157-ef38-4890-bf5b-85c0d26db48f.png" />
+                    <source media="(min-width: 768px)" srcSet="/lovable-uploads/b3de0f4a-f8b3-47c4-b3c0-31c96a75b40c.png" />
                     <img
-                      src="/lovable-uploads/4041b62a-1541-4c70-aae9-0ed9ed3ce365.png"
+                      src="/lovable-uploads/fbc92bcb-645d-4a1d-bce9-1f4532c83f86.png"
                       alt="All your reports and doctor consults on the Early app"
                       className="w-full h-auto object-cover"
                       loading="lazy"
