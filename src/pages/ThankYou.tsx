@@ -2,7 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import paymentSuccessCircle from "@/assets/payment-success-circle.png";
+import { CheckCircle } from "lucide-react";
 
 
 function useQuery() {
@@ -46,18 +46,13 @@ const ThankYou: React.FC = () => {
       <Header />
       <main className="min-h-screen bg-neutral-light text-foreground">
         <section className="container py-8 md:py-12">
-          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#dbdfd2' }}>
+          <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#faf8f1' }}>
             {/* Payment Confirmation Header */}
-            <div className="flex items-center gap-4 mb-8">
-              <img
-                src={paymentSuccessCircle}
-                alt="Payment Successful"
-                className="w-10 h-10 md:w-12 md:h-12 object-contain flex-shrink-0"
-                loading="lazy"
-              />
-              <h1 className="font-satoshi text-lg md:text-xl font-bold text-black">
-                Payment Successful
-              </h1>
+            <div className="mb-8">
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full" style={{ backgroundColor: '#00C853' }}>
+                <CheckCircle className="w-5 h-5 text-white" />
+                <span className="font-bold text-black text-sm">Payment Successful</span>
+              </div>
             </div>
 
             {/* Hero Image */}
