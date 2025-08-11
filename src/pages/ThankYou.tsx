@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import paymentSuccessTick from "@/assets/payment-success-tick.png";
 
 
 function useQuery() {
@@ -49,7 +50,7 @@ const ThankYou: React.FC = () => {
             {/* Payment Confirmation Row */}
             <div className="flex items-center gap-4 mb-6">
               <img
-                src="/lovable-uploads/0f0b20c3-4818-44d2-86b9-1b72891bc98f.png"
+                src={paymentSuccessTick}
                 alt="Payment Successful"
                 className="w-16 h-16 md:w-20 md:h-20 object-contain flex-shrink-0"
                 loading="lazy"
@@ -78,8 +79,8 @@ const ThankYou: React.FC = () => {
               </p>
             </div>
 
-            {/* Standee + App Store Buttons */}
-            <div className="grid md:grid-cols-[1fr_auto] gap-6 items-stretch">
+            {/* Banner Image */}
+            <div className="mb-6">
               <article className="rounded-2xl bg-neutral-cream p-0 shadow-md overflow-hidden">
                 <button type="button" onClick={handleBannerClick} className="block w-full text-left" aria-label="Open app store based on your device">
                   <picture>
@@ -93,70 +94,38 @@ const ThankYou: React.FC = () => {
                   </picture>
                 </button>
               </article>
-              {/* Desktop store CTA image badges on the right */}
-              <aside className="hidden md:flex flex-col justify-center gap-4 w-full max-w-xs">
-                <a
-                  href={APP_STORE_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Download on the App Store"
-                  className="inline-block"
-                >
-                  <img
-                    src="/lovable-uploads/43ec8795-ee06-4bac-a0a9-7720cfe1a690.png"
-                    alt="Download on the App Store - Early"
-                    className="w-full h-auto"
-                    loading="lazy"
-                  />
-                </a>
-                <a
-                  href={PLAY_STORE_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Get it on Google Play"
-                  className="inline-block"
-                >
-                  <img
-                    src="/lovable-uploads/fa7b5a60-2294-4290-a825-fbd8a98cf83e.png"
-                    alt="Get it on Google Play - Early"
-                    className="w-full h-auto"
-                    loading="lazy"
-                  />
-                </a>
-              </aside>
             </div>
-            {/* Mobile store CTA image badges below banner */}
-            <div className="md:hidden pt-4">
-              <div className="grid grid-cols-2 gap-3">
-                <a
-                  href={APP_STORE_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Download on the App Store"
-                  className="inline-block"
-                >
-                  <img
-                    src="/lovable-uploads/43ec8795-ee06-4bac-a0a9-7720cfe1a690.png"
-                    alt="Download on the App Store - Early"
-                    className="w-full h-12 object-contain"
-                    loading="lazy"
-                  />
-                </a>
-                <a
-                  href={PLAY_STORE_LINK}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label="Get it on Google Play"
-                  className="inline-block"
-                >
-                  <img
-                    src="/lovable-uploads/fa7b5a60-2294-4290-a825-fbd8a98cf83e.png"
-                    alt="Get it on Google Play - Early"
-                    className="w-full h-12 object-contain"
-                    loading="lazy"
-                  />
-                </a>
-              </div>
+
+            {/* App Store Buttons */}
+            <div className="flex gap-3">
+              <a
+                href={APP_STORE_LINK}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Download on the App Store"
+                className="flex-1"
+              >
+                <img
+                  src="/lovable-uploads/43ec8795-ee06-4bac-a0a9-7720cfe1a690.png"
+                  alt="Download on the App Store - Early"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </a>
+              <a
+                href={PLAY_STORE_LINK}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Get it on Google Play"
+                className="flex-1"
+              >
+                <img
+                  src="/lovable-uploads/fa7b5a60-2294-4290-a825-fbd8a98cf83e.png"
+                  alt="Get it on Google Play - Early"
+                  className="w-full h-auto"
+                  loading="lazy"
+                />
+              </a>
             </div>
           </div>
         </section>
