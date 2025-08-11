@@ -45,7 +45,7 @@ const ThankYou: React.FC = () => {
     <>
       <Header />
       <main className="min-h-screen bg-neutral-light text-foreground">
-        <section className="container py-8 md:py-12">
+        <section className="container py-4 md:py-6">
           <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 shadow-lg" style={{ backgroundColor: '#faf8f1' }}>
             {/* Payment Confirmation Header */}
             {/* Payment Confirmation Header */}
